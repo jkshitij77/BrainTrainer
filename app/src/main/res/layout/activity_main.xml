@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@android:dimen/app_icon_size"
+    android:paddingTop="@android:dimen/app_icon_size"
+    android:paddingRight="@android:dimen/app_icon_size"
+    tools:context=".MainActivity"
+    tools:paddingBottom="@android:dimen/app_icon_size">
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/goButton"
+        android:layout_alignLeft="@+id/goButton"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="33dp"
+        android:background="#6cfb56"
+        android:padding="10dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/timer"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:padding="10dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/question"
+        android:layout_alignEnd="@+id/goButton"
+        android:layout_alignRight="@+id/goButton"
+        android:background="@android:color/holo_blue_bright"
+        android:padding="10dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:visibility="invisible" />
+
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e351f7"
+            android:onClick="choose"
+            android:paddingLeft="25sp"
+            android:paddingTop="10sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10sp"
+            android:text="Button"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f3fb55"
+            android:onClick="choose"
+            android:paddingLeft="25sp"
+            android:paddingTop="10sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10sp"
+            android:text="Button"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fe3744"
+            android:onClick="choose"
+            android:paddingLeft="25sp"
+            android:paddingTop="10sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10sp"
+            android:text="Button"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#5078fa"
+            android:onClick="choose"
+            android:paddingLeft="25sp"
+            android:paddingTop="10sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10sp"
+            android:text="Button"
+            android:textSize="40sp" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/goButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:alpha=".6"
+        android:text="TextView"
+        android:textSize="25sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#5ef72f"
+        android:onClick="go"
+        android:padding="40dp"
+        android:text="Let's Go!"
+        android:textSize="50sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/playAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@android:color/holo_orange_light"
+        android:onClick="letsPlayAgain"
+        android:text="Play Again"
+        android:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/timeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="?android:attr/colorPressedHighlight"
+        android:ems="10"
+        android:hint="Enter Time in Seconds"
+        android:inputType="number"
+        android:textSize="25sp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/goWithTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/playAgain"
+        android:layout_alignLeft="@+id/playAgain"
+        android:layout_alignTop="@+id/info"
+        android:layout_marginTop="13dp"
+        android:elevation="0dp"
+        android:onClick="goAfterTime"
+        android:text="Go"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/difficultyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/goWithTime"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/chooseDifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Choose Difficulty"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:onClick="easyPressed"
+            android:text="EASY" />
+
+        <Button
+            android:id="@+id/medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:onClick="mediumPressed"
+            android:text="MEDIUM" />
+
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:onClick="hardPressed"
+            android:text="HARD" />
+
+    </LinearLayout>
+
+</RelativeLayout>
