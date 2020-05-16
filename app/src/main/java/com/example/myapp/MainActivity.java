@@ -27,9 +27,12 @@ public class MainActivity extends AppCompatActivity {
     GridLayout grid;
     TextView timer, score, question, info;
     int x1, x2, correctAnswer, t;
-    // x1 and x2 are the numbers that I will be using
+    // x1 and x2 are the numbers that I will be adding subtracting or whatever
+    // The following are the wrong answers
     int wrongAnswer1, wrongAnswer2, wrongAnswer3;
+    // answerSelected is the one the user clicks on
     int answerSelected, s = 0;
+    // Keeping track of how many questions they answer and how long I want the timer to be
     int noOfQuestions=0,timeInputted;
     long timeLeft;
     char difficulty;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Initalise and create all the buttons and views
         setContentView(R.layout.activity_main);
         goButton = (Button) findViewById(R.id.goButton);
         goButton.setVisibility(View.VISIBLE);
@@ -64,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    // Difficlty is represented as e for easy, m for medium and h for hard
+    // On any difficulty being selected, make the difficulty Layout invisible and get them on to
+    // the time selection screen
     public void easyPressed(View view)
     {
         difficulty ='e';
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         goButton.setVisibility(View.INVISIBLE);
     }
 
+    // On selecting the time, get them to click go which starts the game
     public void goAfterTime(View view)
     {
         time.setVisibility(View.INVISIBLE);
@@ -108,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         letsPlayAgain(playAgain);
     }
 
+    // If they wanrt to play again, set all the variables back to default
     public void letsPlayAgain(View view)
     {
         s=0;
@@ -117,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         info.setText("");
         playAgain.setVisibility(View.INVISIBLE);
         generate();
+        // Using timer to keep track of time and show it to the user
         new CountDownTimer(timeInputted,1000)
         {
 
@@ -138,6 +147,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void generate()
     {
+        // Main game
+        // Here we generate numbers and options and display them to the user
         Random rand = new Random();
         if(difficulty =='e')
         {
@@ -171,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         b4.setText(String.valueOf(wrongAnswer3));
 
 
-        // To randomise the process of putting wrong answer in different box every time
+        // To randomise the process of putting the correct answer in different box every time
         t = rand.nextInt(4) + 1;
         if (t == 1) {
             b1.setText(String.valueOf(correctAnswer));
